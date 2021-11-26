@@ -2,7 +2,7 @@
 
 ## Tema Proyek
 
-Dalam proyek kali ini, saya memilih tema Kesehatan Diri dan Mental adapun latar belakang kenapa saya memilih domaian ini. antara lain:
+Dalam proyek kali ini, kita memilih tema Kesehatan Diri dan Mental. Adapun latar belakang kenapa Kita memilih tema ini, antara lain :
 - Bidang kesehatan sering dijumpai dalam kegiatan sehari-hari terutama dalam pelayanan kesehatan.
 - Dalam pelayanan kesehatan juga sangat berkaitan dengan data-data pasien untuk mendiagnosis penyakit.
 - Dari data-data pasien tersebut, kita dapat mengetahui bagaimana cara memastikan jenis penyakit diabetes dengan cepat dan tepat.
