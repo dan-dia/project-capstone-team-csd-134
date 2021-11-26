@@ -8,9 +8,9 @@ Original file is located at
 
 # Model Algoritma Sistem Diagnosa Penyakit Diabetes pada Wanita
 
-## Domain Proyek
+## Tema Proyek
 
-Dalam proyek kali ini, saya memilih Kesehatan Diri dan Mental adapun latar belakang kenapa saya memilih domaian ini. antara lain :
+Dalam proyek kali ini, kita memilih tema Kesehatan Diri dan Mental. Adapun latar belakang kenapa Kita memilih tema ini, antara lain :
 - Bidang kesehatan sering dijumpai dalam kegiatan sehari-hari terutama dalam pelayanan kesehatan.
 - Dalam pelayanan kesehatan juga sangat berkaitan dengan data-data pasien untuk mendiagnosis penyakit.
 - Dari data-data pasien tersebut, kita dapat mengetahui bagaimana cara memastikan jenis penyakit diabetes dengan cepat dan tepat.
@@ -30,6 +30,20 @@ Bayangkan jika Anda seorang petugas medis yang bertugas untuk mengecek data pasi
 
 - Membuat model machine learning yang dapat memprediksi penyakit diabetes dengan tepat.
 - Mengetahui bagaimana hasil akhir sistem diagnosa penyakit diabetes.
+
+### Solution statements
+
+- **Boosting Algorithm**, Metode ini bekerja dengan membangun model dari data latih. Kemudian ia membuat model kedua yang bertugas memperbaiki kesalahan dari model pertama. Model ditambahkan sampai data latih terprediksi dengan baik atau telah mencapai jumlah maksimum model untuk ditambahkan.
+
+- **Decision Tree**, adalah salah satu algoritma supervised learning yang dapat dipakai untuk masalah klasifikasi dan regresi. Decision tree merupakan algoritma yang powerful alias mampu dipakai dalam masalah yang kompleks.
+
+- **K-Nearest Neighbor**, adalah algoritma yang relatif sederhana dibandingkan dengan algoritma lain. Algoritma KNN menggunakan ‘kesamaan fitur’ untuk memprediksi nilai dari setiap data yang baru. Dengan kata lain, setiap data baru diberi nilai berdasarkan seberapa mirip titik tersebut dalam set pelatihan.
+
+- **Random Forest**, salah satu algoritma supervised learning. Ia dapat digunakan untuk menyelesaikan masalah klasifikasi dan regresi. Random forest juga merupakan algoritma yang sering digunakan karena cukup sederhana tetapi memiliki stabilitas yang mumpuni.
+
+- **Support Vector Machines (SVM)**, adalah model ML multifungsi yang dapat digunakan untuk menyelesaikan permasalahan klasifikasi, regresi, dan pendeteksian outlier. Termasuk ke dalam kategori supervised learning, SVM adalah salah satu metode yang paling populer dalam machine learning.
+
+## Data Understanding
 """
 
 # Commented out IPython magic to ensure Python compatibility.
@@ -80,10 +94,10 @@ cols = ["Glucose", "BloodPressure", "SkinThickness", "Insulin", "BMI"]
 for col in cols:
     diabetes[col].replace(0,np.NaN,inplace=True)
 
-# Mengganti nilai NaN dengan nilai mean sesuai target Outcome
+# Mengganti nilai NaN dengan nilai median sesuai target Outcome
 for col in diabetes.columns:
-    diabetes.loc[(diabetes["Outcome"]==0) & (diabetes[col].isnull()),col] = diabetes[diabetes["Outcome"]==0][col].mean()
-    diabetes.loc[(diabetes["Outcome"]==1) & (diabetes[col].isnull()),col] = diabetes[diabetes["Outcome"]==1][col].mean()
+    diabetes.loc[(diabetes["Outcome"]==0) & (diabetes[col].isnull()),col] = diabetes[diabetes["Outcome"]==0][col].median()
+    diabetes.loc[(diabetes["Outcome"]==1) & (diabetes[col].isnull()),col] = diabetes[diabetes["Outcome"]==1][col].median()
 
 # Mengecek kembali missing value
 glucose = (diabetes.Glucose == 0).sum()
@@ -97,6 +111,8 @@ print("Nilai 0 di kolom BloodPressure ada: ", bloodPressure)
 print("Nilai 0 di kolom SkinThickness ada: ", skinThickness)
 print("Nilai 0 di kolom Insulin ada: ", insulin)
 print("Nilai 0 di kolom BMI ada: ", bmi)
+
+diabetes.head()
 
 # Mengecek kembali deskripsi statik data maka akan terlihat berbeda dengan sebelumnya
 diabetes.describe()
@@ -118,7 +134,7 @@ X = scaler.fit_transform(X)
 X = pd.DataFrame(X, columns=columns, index=indexs)
 X.head()
 
-X.describe().round(9)
+X.describe().round(4)
 
 """Perhatikan tabel di atas, sekarang nilai mean = 0 dan standar deviasi = 1"""
 
@@ -139,19 +155,19 @@ svm = SVC()
 svm.fit(X_train, y_train)
 y_pred_svm = svm.predict(X_train)
 
-# membuat model Random Forest Classifier
+# membuat model Random Forest Classification
 rfc = RandomForestClassifier()
 # melakukan pelatihan model terhadap data
 rfc.fit(X_train, y_train)
 y_pred_rfc = rfc.predict(X_train)
 
-# membuat model KNeighbors Classifier
+# membuat model KNeighbors Classification
 knnc = KNeighborsClassifier()
 # melakukan pelatihan model terhadap data
 knnc.fit(X_train, y_train)
 y_pred_knnc = knnc.predict(X_train)
 
-# membuat model Ada Boost Classifier
+# membuat model AdaBoost Classifier
 adaboost = AdaBoostClassifier()
 # melakukan pelatihan model terhadap data                        
 adaboost.fit(X_train, y_train)
@@ -159,8 +175,8 @@ y_pred_adaboost = adaboost.predict(X_train)
 
 """## Evaluation"""
 
-mse = pd.DataFrame(columns=['train', 'test'], index=['DecisionTree', 'SVM', 'Random Forest Classifier', 'KNeighbors Classifier', 'AdaBoostClassifier'])
-model_dict = {'DecisionTree': decisiontree, 'SVM': svm, 'Random Forest Classifier': rfc, 'KNeighbors Classifier': knnc, 'AdaBoostClassifier':adaboost}
+mse = pd.DataFrame(columns=['train', 'test'], index=['DecisionTree', 'SVM', 'RandomForestClassification', 'KNeighborsClassification', 'AdaBoostClassifier'])
+model_dict = {'DecisionTree': decisiontree, 'SVM': svm, 'RandomForestClassification': rfc, 'KNeighborsClassification': knnc, 'AdaBoostClassifier':adaboost}
 for name, model in model_dict.items():
     mse.loc[name, 'train'] = mean_squared_error(y_true=y_train, y_pred=model.predict(X_train))/1e3 
     mse.loc[name, 'test'] = mean_squared_error(y_true=y_test, y_pred=model.predict(X_test))/1e3
@@ -171,10 +187,10 @@ fig, ax = plt.subplots()
 mse.sort_values(by='test', ascending=False).plot(kind='barh', ax=ax, zorder=3)
 ax.grid(zorder=0)
 
-"""Dari gambar di atas, terlihat bahwa, model Decision Tree, Random Forest Classifier, dan Ada Boost Classifier memberikan nilai eror yang paling kecil. Model inilah yang mungkin akan kita pilih sebagai model terbaik untuk melakukan prediksi penyakit diabetes."""
+"""Dari gambar di atas, terlihat bahwa model Random Forest Classifier, Decision Tree dan Ada Boost Classifier memberikan nilai eror yang paling kecil. Model inilah yang mungkin akan kita pilih sebagai model terbaik untuk melakukan prediksi penyakit diabetes."""
 
-prediksi = X_test.iloc[:3].copy()
-pred_dict = {'y_true':y_test[:3]}
+prediksi = X_test.iloc[:10].copy()
+pred_dict = {'y_true':y_test[:10]}
 for name, model in model_dict.items():
     pred_dict['prediksi_'+name] = model.predict(prediksi)
  
@@ -182,12 +198,16 @@ pd.DataFrame(pred_dict)
 
 """Dari gambar di atas, terlihat semua model memberikan hasil prediksi yang cukup tepat."""
 
-acc = pd.DataFrame(columns=['train', 'test'], index=['DecisionTree', 'SVM', 'Random Forest Classifier', 'KNeighbors Classifier', 'AdaBoostClassifier'])
-model_dict = {'DecisionTree': decisiontree, 'SVM': svm, 'Random Forest Classifier': rfc, 'KNeighbors Classifier': knnc, 'AdaBoostClassifier':adaboost}
+acc = pd.DataFrame(columns=['acc_train', 'acc_test'], index=['DecisionTree', 'SVM', 'RandomForestClassification', 'KNeighborsClassification', 'AdaBoostClassifier'])
+model_dict = {'DecisionTree': decisiontree, 'SVM': svm, 'RandomForestClassification': rfc, 'KNeighborsClassification': knnc, 'AdaBoostClassifier':adaboost}
 for name, model in model_dict.items():
-    acc.loc[name, 'train'] = round(accuracy_score(y_true=y_train, y_pred=model.predict(X_train)), 3)
-    acc.loc[name, 'test'] = round(accuracy_score(y_true=y_test, y_pred=model.predict(X_test)), 3)
+    acc.loc[name, 'acc_train'] = round(accuracy_score(y_true=y_train, y_pred=model.predict(X_train)),2)
+    acc.loc[name, 'acc_test'] = round(accuracy_score(y_true=y_test, y_pred=model.predict(X_test)),2)
  
 acc
 
-"""Dari gambar di atas, terlihat bahwa, model Decision Tree, Random Forest Classifier, dan Ada Boost Classifier memberikan nilai accuracy yang cukup baik."""
+fig, ax = plt.subplots()
+acc.sort_values(by='acc_test').plot(kind='barh', ax=ax, zorder=3)
+ax.grid(zorder=0)
+
+"""Dari gambar di atas, terlihat bahwa model Random Forest Classifier, Decision Tree dan Ada Boost Classifier memberikan nilai accuracy yang cukup baik."""
