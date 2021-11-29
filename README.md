@@ -37,8 +37,85 @@ Bayangkan jika Anda seorang petugas medis yang bertugas untuk mengecek data pasi
 
 ## Data Understanding
 
+Data yang saya gunakan dalam proyek kali ini adalah Diabetes Dataset yang dapat di unduh melalui [Kaggle](https://www.kaggle.com/mathchi/diabetes-data-set), Dan dalam tahap latihan ini saya menggunakan dataset diabetes.csv dan dataset ini cukup bersih.
+
+Dataset ini memiliki 768 data dengan beberapa karakteristik penyebab diabetes. Karakteristik yang dimaksud di sini adalah kondisi numerik seperti Pregnancies, Glucose, BloodPressure, SkinThickness, Insulin, BMI, DiabetesPedigreeFunction dan Age. Kedelapan karakteristik ini yang akan digunakan dalam menemukan pola pada data, sedangkan Outcome merupakan fitur target.
+
+Variabel-variabel pada Diabetes Dataset adalah sebagai berikut:
+- Pregnancies: Jumlah kelahiran pada seseorang
+- Glucose: Konsentrasi glukosa plasma pada 2 jam dalam tes toleransi glukosa oral
+- BloodPressure: Tekanan darah diastolik (mm/Hg)
+- SkinThickness: Ketebalan lipatan kulit trisep (mm)
+- Insulin: Tingkat insulin 2 jam insulin serum
+- BMI: Indeks Massa Tubuh (berat dalam kg / (tinggi dalam meter kuadrat)
+- DiabetesPedigreeFunction: Indikator riwayat diabetes dalam keluarga
+- Age: Umur seseorang
+
+```
+# Mengecek informasi dataset dengan fungsi info()
+diabetes.info()
+```
+
 ## Data Preparation
+
+```
+X = diabetes.drop(['Outcome'], axis=1)
+y = diabetes['Outcome']
+```
+
+```
+# Membagi dataset menjadi data latih (train) dan data uji (test)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2, random_state = 42, shuffle=False)
+```
 
 ## Modeling
 
+```
+# membuat model Random Forest Classification
+rfc = RandomForestClassifier()
+# melakukan pelatihan model terhadap data
+rfc.fit(X_train, y_train)
+y_pred_rfc = rfc.predict(X_train)
+```
+
+```
+# membuat model Decision Tree
+decisiontree = DecisionTreeClassifier() 
+# melakukan pelatihan model terhadap data
+decisiontree.fit(X_train, y_train)
+y_pred_decisiontree = decisiontree.predict(X_train)
+```
+
 ## Evaluation
+
+```
+mse = pd.DataFrame(columns=['train', 'test'], index=['DecisionTree', 'SVM', 'RandomForestClassification', 'KNeighborsClassification', 'AdaBoostClassifier'])
+model_dict = {'DecisionTree': decisiontree, 'SVM': svm, 'RandomForestClassification': rfc, 'KNeighborsClassification': knnc, 'AdaBoostClassifier':adaboost}
+for name, model in model_dict.items():
+    mse.loc[name, 'train'] = mean_squared_error(y_true=y_train, y_pred=model.predict(X_train))/1e3 
+    mse.loc[name, 'test'] = mean_squared_error(y_true=y_test, y_pred=model.predict(X_test))/1e3
+ 
+mse
+```
+
+```
+fig, ax = plt.subplots()
+mse.sort_values(by='test', ascending=False).plot(kind='barh', ax=ax, zorder=3)
+ax.grid(zorder=0)
+```
+
+```
+acc = pd.DataFrame(columns=['acc_train', 'acc_test'], index=['DecisionTree', 'SVM', 'RandomForestClassification', 'KNeighborsClassification', 'AdaBoostClassifier'])
+model_dict = {'DecisionTree': decisiontree, 'SVM': svm, 'RandomForestClassification': rfc, 'KNeighborsClassification': knnc, 'AdaBoostClassifier':adaboost}
+for name, model in model_dict.items():
+    acc.loc[name, 'acc_train'] = round(accuracy_score(y_true=y_train, y_pred=model.predict(X_train)),2)
+    acc.loc[name, 'acc_test'] = round(accuracy_score(y_true=y_test, y_pred=model.predict(X_test)),2)
+ 
+acc
+```
+
+```
+fig, ax = plt.subplots()
+acc.sort_values(by='acc_test').plot(kind='barh', ax=ax, zorder=3)
+ax.grid(zorder=0)
+```
