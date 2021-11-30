@@ -21,6 +21,54 @@
       </div>
     </nav>
   </header>
+  <main class="container">
+    <div class="card my-5 bg-light shadow">
+      <div class="card-body p-5">
+        <form>
+          <div class="mb-3">
+            <label for="name" class="form-label fw-bold">Name</label>
+            <input type="text" class="form-control rounded-pill rounded-pill" id="name" autocomplete="off" required>
+          </div>
+          <div class="mb-3">
+            <label for="pregnancies" class="form-label">Pregnancies</label>
+            <input type="number" class="form-control rounded-pill" id="pregnancies" min="0" autocomplete="off" required>
+          </div>
+          <div class="mb-3">
+            <label for="glucose" class="form-label">Glucose</label>
+            <input type="number" class="form-control rounded-pill" id="glucose" min="0" autocomplete="off" required>
+          </div>
+          <div class="mb-3">
+            <label for="bloodPressure" class="form-label">Blood Pressure</label>
+            <input type="number" class="form-control rounded-pill" id="bloodPressure" min="0" autocomplete="off" required>
+          </div>
+          <div class="mb-3">
+            <label for="skinThickness" class="form-label">Skin Thickness</label>
+            <input type="number" class="form-control rounded-pill" id="skinThickness" min="0" autocomplete="off" required>
+          </div>
+          <div class="mb-3">
+            <label for="isulin" class="form-label">Isulin</label>
+            <input type="number" class="form-control rounded-pill" id="isulin" min="0" autocomplete="off" required>
+          </div>
+          <div class="mb-3">
+            <label for="bmi" class="form-label">BMI</label>
+            <input type="number" class="form-control rounded-pill" id="bmi" min="0" autocomplete="off" required>
+          </div>
+          <div class="mb-3">
+            <label for="diabetesPedigreeFunction" class="form-label">Diabetes Pedigree Function</label>
+            <input type="number" class="form-control rounded-pill" id="diabetesPedigreeFunction" min="0" autocomplete="off" required>
+          </div>
+          <div class="mb-4">
+            <label for="age" class="form-label">Age</label>
+            <input type="number" class="form-control rounded-pill" id="age" min="0" autocomplete="off" required>
+          </div>
+          <div class="d-flex justify-content-center">
+            <button type="submit" class="btn btn-primary">Predict</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </main>
+
   <!-- Optional JavaScript; choose one of the two! -->
 
   <!-- Option 1: Bootstrap Bundle with Popper -->
