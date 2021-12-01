@@ -39,21 +39,33 @@
                     </div>
                     <div class="col-md-4">
                         <label for="bloodPressure" class="form-label">Blood Pressure</label>
-                        <input type="number" class="form-control" id="bloodPressure" min="0" autocomplete="off"
-                            required>
+                        <div class="input-group">
+                            <input type="number" class="form-control" id="bloodPressure" min="0" autocomplete="off"
+                                required>
+                            <div class="input-group-text">mm/Hg</div>
+                        </div>
                     </div>
                     <div class="col-md-4">
                         <label for="skinThickness" class="form-label">Skin Thickness</label>
-                        <input type="number" class="form-control" id="skinThickness" min="0" autocomplete="off"
-                            required>
+                        <div class="input-group">
+                            <input type="number" class="form-control" id="skinThickness" min="0" autocomplete="off"
+                                required>
+                            <div class="input-group-text">mm</div>
+                        </div>
                     </div>
                     <div class="col-md-4">
                         <label for="insulin" class="form-label">Insulin</label>
-                        <input type="number" class="form-control" id="insulin" min="0" autocomplete="off" required>
+                        <div class="input-group">
+                            <input type="number" class="form-control" id="insulin" min="0" autocomplete="off" required>
+                            <div class="input-group-text">mu U/ml</div>
+                        </div>
                     </div>
                     <div class="col-md-4">
                         <label for="bmi" class="form-label">BMI</label>
-                        <input type="number" class="form-control" id="bmi" min="0" autocomplete="off" required>
+                        <div class="input-group">
+                            <input type="number" class="form-control" id="bmi" min="0" autocomplete="off" required>
+                            <div class="input-group-text">kg/m<sup>2</sup></div>
+                        </div>
                     </div>
                     <div class="col-md-8">
                         <label for="diabetesPedigreeFunction" class="form-label">Diabetes Pedigree Function</label>
@@ -62,10 +74,13 @@
                     </div>
                     <div class="col-md-4">
                         <label for="age" class="form-label">Age</label>
-                        <input type="number" class="form-control" id="age" min="0" autocomplete="off" required>
+                        <div class="input-group">
+                            <input type="number" class="form-control" id="age" min="0" autocomplete="off" required>
+                            <div class="input-group-text">Year</div>
+                        </div>
                     </div>
                     <div class="d-flex justify-content-end">
-                        <button class="btn btn-primary btn-predict rounded-pill" data-bs-toggle="modal"
+                        <button class="btn btn-primary btn-predict" data-bs-toggle="modal"
                             data-bs-target="#modalResult">Predict</button>
                     </div>
                 </form>
@@ -124,7 +139,7 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                     </div>
                 </div>
             </div>
