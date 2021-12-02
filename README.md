@@ -56,6 +56,8 @@ Variabel-variabel pada Diabetes Dataset adalah sebagai berikut:
 diabetes.info()
 ```
 
+![Gambar Diabetes Info](https://raw.githubusercontent.com/dandia14/project-capstone-team-csd-134/ml/images/diabetes.info.JPG)
+
 ## Data Preparation
 
 ```
@@ -90,8 +92,12 @@ for name, model in model_dict.items():
 mse
 ```
 
+![Gambar MSE](https://raw.githubusercontent.com/dandia14/project-capstone-team-csd-134/ml/images/mse.JPG)
+
 ```
 fig, ax = plt.subplots()
 mse.sort_values(by='test', ascending=False).plot(kind='barh', ax=ax, zorder=3)
 ax.grid(zorder=0)
 ```
+
+![Gambar Grafik MSE](https://raw.githubusercontent.com/dandia14/project-capstone-team-csd-134/ml/images/grafikmse.JPG)
