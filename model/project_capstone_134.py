@@ -160,6 +160,10 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2, rando
 
 """## Modeling"""
 
+# Siapkan dataframe untuk analisis model
+models = pd.DataFrame(index=['train_mse', 'test_mse'], 
+                      columns=['DecisionTree', 'SVM', 'RandomForestClassification', 'KNeighborsClassification', 'AdaBoostClassifier'])
+
 # membuat model Decision Tree
 decisiontree = DecisionTreeClassifier() 
 # melakukan pelatihan model terhadap data
@@ -176,7 +180,8 @@ y_pred_svm = svm.predict(X_train)
 rfc = RandomForestClassifier()
 # melakukan pelatihan model terhadap data
 rfc.fit(X_train, y_train)
-y_pred_rfc = rfc.predict(X_train)
+
+models.loc['train_mse','RandomForestClassification'] = mean_squared_error(y_pred=rfc.predict(X_train), y_true=y_train)
 
 # membuat model KNeighbors Classification
 knnc = KNeighborsClassifier()
@@ -188,7 +193,8 @@ y_pred_knnc = knnc.predict(X_train)
 adaboost = AdaBoostClassifier()
 # melakukan pelatihan model terhadap data                        
 adaboost.fit(X_train, y_train)
-y_pred_adaboost = adaboost.predict(X_train)
+
+models.loc['train_mse','AdaBoostClassifier'] = mean_squared_error(y_pred=adaboost.predict(X_train), y_true=y_train)
 
 """## Evaluation"""
 
