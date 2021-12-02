@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400&display=swap');
+
+body {
+    font-family: 'Quicksand', sans-serif;
+}
+
+.card {
+    width: 85%;
+    margin: 0 auto;
+}
+
+.d-flex {
+    padding-top: 20px;
+}
+
+.btn {
+    width: 15%;
+    font-weight: bold;
+}
