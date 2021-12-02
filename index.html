@@ -28,42 +28,60 @@
         <form>
           <div class="mb-3">
             <label for="name" class="form-label fw-bold">Name</label>
-            <input type="text" class="form-control rounded-pill rounded-pill" id="name" autocomplete="off" required>
+            <input type="text" class="form-control" id="name" autocomplete="off" required>
           </div>
           <div class="mb-3">
             <label for="pregnancies" class="form-label">Pregnancies</label>
-            <input type="number" class="form-control rounded-pill" id="pregnancies" min="0" autocomplete="off" required>
+            <input type="number" class="form-control" id="pregnancies" min="0" autocomplete="off" required>
           </div>
           <div class="mb-3">
             <label for="glucose" class="form-label">Glucose</label>
-            <input type="number" class="form-control rounded-pill" id="glucose" min="0" autocomplete="off" required>
+            <div class="input-group">
+              <input type="number" class="form-control" id="glucose" min="0" autocomplete="off" aria-describedby="mgdl" required>
+              <span class="input-group-text" id="mgdl">mg/dL</span>
+            </div>
           </div>
           <div class="mb-3">
-            <label for="bloodPressure" class="form-label">Blood Pressure</label>
-            <input type="number" class="form-control rounded-pill" id="bloodPressure" min="0" autocomplete="off"
-              required>
+            <label for="diastolicBloodPressure" class="form-label">Diastolic Blood Pressure</label>
+            <div class="input-group">
+              <input type="number" class="form-control" id="diastolicBloodPressure" min="0" autocomplete="off"
+                aria-describedby="mmhg" required>
+              <span class="input-group-text" id="mmhg">mmHg</span>
+            </div>
           </div>
           <div class="mb-3">
             <label for="skinThickness" class="form-label">Skin Thickness</label>
-            <input type="number" class="form-control rounded-pill" id="skinThickness" min="0" autocomplete="off"
-              required>
+            <div class="input-group">
+              <input type="number" class="form-control" id="skinThickness" min="0" autocomplete="off"
+                aria-describedby="mm" required>
+              <span class="input-group-text" id="mm">mm</span>
+            </div>
           </div>
           <div class="mb-3">
             <label for="isulin" class="form-label">Isulin</label>
-            <input type="number" class="form-control rounded-pill" id="isulin" min="0" autocomplete="off" required>
+            <div class="input-group">
+              <input type="number" class="form-control" id="isulin" min="0" autocomplete="off" aria-describedby="muUml"
+                required>
+              <span class="input-group-text" id="muUml">mu U/ml</span>
+            </div>
           </div>
           <div class="mb-3">
             <label for="bmi" class="form-label">BMI</label>
-            <input type="number" class="form-control rounded-pill" id="bmi" min="0" autocomplete="off" required>
+            <div class="input-group">
+              <input type="number" class="form-control" id="bmi" min="0" step="0.1" autocomplete="off" aria-describedby="kgm2" required>
+              <span class="input-group-text" id="kgm2">kg/m<sup>2</sup></span>
+            </div>
           </div>
           <div class="mb-3">
             <label for="diabetesPedigreeFunction" class="form-label">Diabetes Pedigree Function</label>
-            <input type="number" class="form-control rounded-pill" id="diabetesPedigreeFunction" min="0"
-              autocomplete="off" required>
+            <input type="number" class="form-control" id="diabetesPedigreeFunction" min="0" step="0.001" autocomplete="off" required>
           </div>
           <div class="mb-4">
             <label for="age" class="form-label">Age</label>
-            <input type="number" class="form-control rounded-pill" id="age" min="0" autocomplete="off" required>
+            <div class="input-group">
+              <input type="number" class="form-control" id="age" min="0" autocomplete="off" aria-describedby="years" required>
+              <span class="input-group-text" id="years">Years</span>
+            </div>
           </div>
           <div class="d-flex justify-content-center">
             <button class="btn btn-primary btn-predict" data-bs-toggle="modal"
