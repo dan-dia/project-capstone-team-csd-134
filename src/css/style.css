@@ -17,3 +17,13 @@ body {
     width: 15%;
     font-weight: bold;
 }
+
+@media screen and (max-width: 1000px) {
+
+    .card,
+    .btn {
+        width: 100%;
+        padding: 0;
+    }
+
+}
