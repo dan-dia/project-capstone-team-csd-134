@@ -79,7 +79,8 @@ Tahapan ini kita akan membahas model algoritma yaitu Random Forest, salah satu m
 rfc = RandomForestClassifier()
 # melakukan pelatihan model terhadap data
 rfc.fit(X_train, y_train)
-y_pred_rfc = rfc.predict(X_train)
+
+models.loc['train_mse','RandomForestClassification'] = mean_squared_error(y_pred=rfc.predict(X_train), y_true=y_train)
 ```
 
 ## Evaluation
