@@ -78,14 +78,6 @@ rfc.fit(X_train, y_train)
 y_pred_rfc = rfc.predict(X_train)
 ```
 
-```
-# membuat model Decision Tree
-decisiontree = DecisionTreeClassifier() 
-# melakukan pelatihan model terhadap data
-decisiontree.fit(X_train, y_train)
-y_pred_decisiontree = decisiontree.predict(X_train)
-```
-
 ## Evaluation
 
 ```
@@ -101,21 +93,5 @@ mse
 ```
 fig, ax = plt.subplots()
 mse.sort_values(by='test', ascending=False).plot(kind='barh', ax=ax, zorder=3)
-ax.grid(zorder=0)
-```
-
-```
-acc = pd.DataFrame(columns=['acc_train', 'acc_test'], index=['DecisionTree', 'SVM', 'RandomForestClassification', 'KNeighborsClassification', 'AdaBoostClassifier'])
-model_dict = {'DecisionTree': decisiontree, 'SVM': svm, 'RandomForestClassification': rfc, 'KNeighborsClassification': knnc, 'AdaBoostClassifier':adaboost}
-for name, model in model_dict.items():
-    acc.loc[name, 'acc_train'] = round(accuracy_score(y_true=y_train, y_pred=model.predict(X_train)),2)
-    acc.loc[name, 'acc_test'] = round(accuracy_score(y_true=y_test, y_pred=model.predict(X_test)),2)
- 
-acc
-```
-
-```
-fig, ax = plt.subplots()
-acc.sort_values(by='acc_test').plot(kind='barh', ax=ax, zorder=3)
 ax.grid(zorder=0)
 ```
