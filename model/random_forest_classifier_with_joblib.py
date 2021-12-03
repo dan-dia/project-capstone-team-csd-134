@@ -50,9 +50,9 @@ print('Accuracy Score Train :', accuracy_train)
 accuracy_test = accuracy_score(y_pred=rfc.predict(X_test), y_true=y_test)
 print('Accuracy Score Test :', accuracy_test)
 
-joblib.dump(model, 'model_rfc')
+joblib.dump(model, 'model_rfc.pkl')
 
-file = open('./model_rfc', 'rb')
+file = open('./model_rfc.pkl', 'rb')
 model = joblib.load(file)
 
 prediksi = X_test[:5].copy()
