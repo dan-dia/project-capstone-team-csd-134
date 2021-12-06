@@ -60,14 +60,18 @@ diabetes.info()
 
 ## Data Preparation
 
+Membagi dataset menjadi data latih (train) dan data uji (test) merupakan hal yang harus kita lakukan sebelum membuat model. Dimana X adalah sebuah fitur dan sedangkan y adalah sebuah label dari dataset diabetes.csv
+
 ```
 X = diabetes.drop(['Outcome'], axis=1)
 y = diabetes['Outcome']
 ```
 
+Pada tahap ini, kita akan menggunakan proporsi pembagian sebesar 80:20 dengan fungsi train_test_split dari sklearn.
+
 ```
 # Membagi dataset menjadi data latih (train) dan data uji (test)
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2, random_state = 42, shuffle=False)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2, random_state = 0)
 ```
 
 ## Modeling
@@ -85,6 +89,8 @@ models.loc['train_mse','RandomForestClassification'] = mean_squared_error(y_pred
 
 ## Evaluation
 
+Metrik yang akan kita gunakan pada prediksi ini adalah MSE atau Mean Squared Error yang menghitung jumlah selisih kuadrat rata-rata nilai sebenarnya dengan nilai prediksi. Selanjutnya, mari kita evaluasi kelima model kita dengan metrik MSE.
+
 ```
 mse = pd.DataFrame(columns=['train', 'test'], index=['DecisionTree', 'SVM', 'RandomForestClassification', 'KNeighborsClassification', 'AdaBoostClassifier'])
 model_dict = {'DecisionTree': decisiontree, 'SVM': svm, 'RandomForestClassification': rfc, 'KNeighborsClassification': knnc, 'AdaBoostClassifier':adaboost}
@@ -95,7 +101,11 @@ for name, model in model_dict.items():
 mse
 ```
 
-![Gambar MSE](https://raw.githubusercontent.com/dandia14/project-capstone-team-csd-134/ml/images/mse.JPG)
+Hasil evaluasi pada data latih dan data test adalah sebagai berikut.
+
+![Gambar MSE](https://github.com/dandia14/project-capstone-team-csd-134/blob/ml/images/mse.JPG)
+
+Untuk memudahkan, mari kita plot metrik tersebut dengan bar chart. Tuliskan kode di bawah ini:
 
 ```
 fig, ax = plt.subplots()
@@ -103,4 +113,8 @@ mse.sort_values(by='test', ascending=False).plot(kind='barh', ax=ax, zorder=3)
 ax.grid(zorder=0)
 ```
 
-![Gambar Grafik MSE](https://raw.githubusercontent.com/dandia14/project-capstone-team-csd-134/ml/images/grafikmse.JPG)
+Hasilnya sebagai berikut.
+
+![Gambar Grafik MSE](https://github.com/dandia14/project-capstone-team-csd-134/blob/ml/images/grafikmse.JPG)
+
+Dari gambar di atas, terlihat bahwa model Random Forest Classifier memberikan nilai eror yang paling kecil. Model inilah yang mungkin akan kita pilih sebagai model terbaik untuk melakukan prediksi penyakit diabetes.
