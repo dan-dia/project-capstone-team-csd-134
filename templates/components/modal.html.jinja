@@ -1,52 +1,52 @@
 <!-- Modal -->
 <div class="modal fade" id="modalResult" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
+  <div class="modal-dialog modal-dialog-scrollable">
       <div class="modal-content">
           <div class="modal-header">
               <h5 class="modal-title" id="exampleModalLabel">Result</h5>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-              <p class="my-2">Name : Wulandari</p>
+              <p class="my-2">Name : <span class="text-name text-capitalize"></span></p>
               <table class="table">
                   <tbody>
                       <tr>
                           <th scope="row">Pregnancies</th>
-                          <td>0</td>
+                          <td><span class="text-pregnancies"></span></td>
                       </tr>
                       <tr>
                           <th scope="row">Glucose</th>
-                          <td>130</td>
+                          <td><span class="text-glucose"></span></td>
                       </tr>
                       <tr>
                           <th scope="row">Blood Pressure</th>
-                          <td>120</td>
+                          <td><span class="text-bloodPressure"></span></td>
                       </tr>
                       <tr>
                           <th scope="row">Skin Thickness</th>
-                          <td>12</td>
+                          <td><span class="text-skinThickness"></span></td>
                       </tr>
                       <tr>
                           <th scope="row">Insulin</th>
-                          <td>133</td>
+                          <td><span class="text-insulin"></span></td>
                       </tr>
                       <tr>
                           <th scope="row">BMI</th>
-                          <td>44</td>
+                          <td><span class="text-bmi"></span></td>
                       </tr>
                       <tr>
                           <th scope="row">Diabetes Pedigree Function</th>
-                          <td>8</td>
+                          <td><span class="text-diabetesPedigreeFunction"></span></td>
                       </tr>
                       <tr>
                           <th scope="row">Age</th>
-                          <td>32</td>
+                          <td><span class="text-age"></span></td>
                       </tr>
                   </tbody>
               </table>
               <div class="text-center">
                   <p>Berdasarkan data diatas anda dinyatakan : </p>
-                  <p><span id="resultPredict" class="fw-bold">Negatif</span> terhadap penyakit diabetes.</p>
+                  <p><span id="resultPredict" class="fw-bold text-uppercase"></span> terhadap penyakit diabetes.</p>
               </div>
           </div>
           <div class="modal-footer">
