@@ -3,8 +3,12 @@
 {% import './components/modal.html.jinja' as modal %}
 
 {% block title %}Diabetes Predictive{% endblock %}
+
 {% block main %}
   {{ form }}
   {{ modal }}
 {% endblock %}
 
+{% block script %}
+<script src="{{ url_for('static', filename='src/script/script.js') }}"></script>
+{% endblock %}
