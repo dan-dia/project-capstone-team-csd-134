@@ -1,4 +1,4 @@
-# project-capstone-team-csd-134
+# Sistem Diagnosa Penyakit Diabetes pada Wanita
 Project Capstone Team CSD-134
 
 ## Instalasi Project
@@ -9,7 +9,7 @@ Masuk kefolder project lalu buka cmd dan ketikan perintah dibawah ini, untuk mem
 
 Setelah inisialisasi venv, aktifkan venv dengan perintah:
 
-`venv\Scripts\activate`
+`venv\Scripts\activate.bat`
 
 Lalu install package yang dibutuhkan:
 
