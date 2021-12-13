@@ -35,20 +35,56 @@ form.addEventListener('submit', function (e) {
     });
     return response;
   }
-
+  
+  
   postData('/process_to_model', datas)
-    .then(data => data.json())
-    .then(res => {
-      document.querySelector('.text-name').innerText = name;
-      document.querySelector('.text-pregnancies').innerText = pregnancies;
-      document.querySelector('.text-glucose').innerText = glucose;
-      document.querySelector('.text-bloodPressure').innerText = bloodPressure;
-      document.querySelector('.text-skinThickness').innerText = skinThickness;
-      document.querySelector('.text-insulin').innerText = insulin;
-      document.querySelector('.text-bmi').innerText = bmi;
-      document.querySelector('.text-diabetesPedigreeFunction').innerText = diabetesPedigreeFunction;
-      document.querySelector('.text-age').innerText = age;
-      document.querySelector('#resultPredict').innerText = res.response;
+  .then(data => data.json())
+  .then(res => {
+      const {response} = res;
+      const modalBody = document.querySelector('.modal-body');
+      const textModalBody = `
+      <p class="my-2 text-capitalize"><span class="fw-bold">Name</span> : ${name}</p>
+              <table class="table">
+                  <tbody>
+                      <tr>
+                          <th scope="row">Pregnancies</th>
+                          <td>${pregnancies}</td>
+                      </tr>
+                      <tr>
+                          <th scope="row">Glucose</th>
+                          <td>${glucose}</td>
+                      </tr>
+                      <tr>
+                          <th scope="row">Blood Pressure</th>
+                          <td>${bloodPressure}</td>
+                      </tr>
+                      <tr>
+                          <th scope="row">Skin Thickness</th>
+                          <td>${skinThickness}</td>
+                      </tr>
+                      <tr>
+                          <th scope="row">Insulin</th>
+                          <td>${insulin}</td>
+                      </tr>
+                      <tr>
+                          <th scope="row">BMI</th>
+                          <td>${bmi}</td>
+                      </tr>
+                      <tr>
+                          <th scope="row">Diabetes Pedigree Function</th>
+                          <td>${diabetesPedigreeFunction}</td>
+                      </tr>
+                      <tr>
+                          <th scope="row">Age</th>
+                          <td>${age}</td>
+                      </tr>
+                  </tbody>
+              </table>
+              <div class="text-center">
+                  <p>Berdasarkan data diatas anda dinyatakan : </p>
+                  <p><span class="fw-bold text-uppercase">${response}</span> terhadap penyakit diabetes.</p>
+              </div>`;
+      modalBody.innerHTML = textModalBody;
       modal.show();
     })
     .catch(m => console.log(m));
