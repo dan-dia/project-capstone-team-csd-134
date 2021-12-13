@@ -4,7 +4,6 @@ import pandas as pd
 import numpy as np
 # from sklearn.preprocessing import StandardScaler
 
-
 app = Flask(__name__)
 
 @app.route("/")
@@ -23,15 +22,18 @@ def process_to_model():
 
     datas = np.array([pregnancies, glucose, bloodPressure, skinThickness, insulin, bmi, diabetesPedigreeFunction, age]).reshape(1, -1)
 
-    columns = ["Pregnancies", "Glucose", "BloodPressure", "SkinThickness", "Insulin", "BMI", "DiabetesPedigreeFunction", "Age"]
-    datas_df = pd.DataFrame(datas, columns=columns)
+    # columns = ["Pregnancies", "Glucose", "BloodPressure", "SkinThickness", "Insulin", "BMI", "DiabetesPedigreeFunction", "Age"]
+    # datas_df = pd.DataFrame(datas, columns=columns)
+    # scaler = StandardScaler()
+    # datas = datas.reshape(-1, 1)
+    # scaler.fit(datas)
+    # datas_ss = scaler.transform(datas)
+    # datas_df = pd.DataFrame(datas_ss.transpose(), columns=columns)
+    # isDiabetes = model.predict(datas_df)
     
-		# scaler = StandardScaler()
-		# datas = datas.reshape(-1, 1)
-    # datas_df = pd.DataFrame(scaler.fit_transform(datas), columns=columns)
-    # print(datas_df)
-    isDiabetes = model.predict(datas_df)
-    if (isDiabetes == 0):
+    isDiabetes = model.predict(datas)
+    print(isDiabetes[0])
+    if (isDiabetes[0] == 0):
       result = 'negatif'
     else:
       result = 'positif'
