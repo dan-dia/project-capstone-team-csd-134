@@ -19,7 +19,7 @@ Lalu install package yang dibutuhkan:
 
 Jika ingin dijalankan dalam mode development atau pengembangan maka ketikkan peritah dibawah ini: (opsional, secara default menggunakan mode production)
 
-`set FLASK_APP=development`
+`set FLASK_ENV=development`
 
 Jalankan project dengan perintah :
 
