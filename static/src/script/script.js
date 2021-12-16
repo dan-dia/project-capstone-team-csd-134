@@ -92,42 +92,30 @@ form.addEventListener('submit', function (e) {
 });
 
 /* Button Reset */
-form.addEventListener('reset', function (e) {
-    modalConfirm = confirm("Do you want to reset this data?");
-    if (modalConfirm == true) {
-        e.reset();
-    } else {
-        e.preventDefault();
+const btnReset = document.getElementById('btnReset');
+btnReset.addEventListener('click', function (e) {
+    Swal.fire({
+        title: 'Reset Data!',
+        text: 'Do you want to reset this data ?',
+        icon: 'info',
+        confirmButtonText: 'Yes',
+        showCancelButton: true,
+        confirmButtonColor: '#0d6efd'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            const reset = document.querySelector('button[type=reset]');
+            reset.click();
+            Swal.fire({
+                title: 'Reset!', 
+                text: 'The form has been reset.',
+                icon: 'success',
+                confirmButtonColor: '#0d6efd'
+                });
+        }
     }
+
+    );
 });
-
-/*form.addEventListener('reset', function (e) {
-    e.preventDefault();
-
-    const confirm = document.createElement('div');
-    confirm.innerHTML = `
-    <div class="modal fade" tabindex="-1">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header bg-light">
-            <h5 class="modal-title">Reset Data</h5>
-          </div>
-          <div class="modal-body">
-            <p>Do you want to reset this data?</p>
-          </div>
-          <div class="modal-footer bg-light">
-            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Yes</button>
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
-          </div>
-        </div>
-      </div>
-    </div>
-    `;
-
-    document.body.append(confirm);
-    const modal = new bootstrap.Modal(confirm.querySelector('.modal'));
-    modal.show();
-});*/
 
 /* Footer */
 const footerYear = document.getElementById('footerYear');
