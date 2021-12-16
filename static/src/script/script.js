@@ -2,47 +2,47 @@ const form = document.getElementById('form');
 const modal = new bootstrap.Modal(document.getElementById('modalResult'));
 
 form.addEventListener('submit', function (e) {
-  e.preventDefault();
+    e.preventDefault();
 
-  const name = document.getElementById('name').value;
-  const pregnancies = document.getElementById('pregnancies').value;
-  const glucose = document.getElementById('glucose').value;
-  const bloodPressure = document.getElementById('bloodPressure').value;
-  const skinThickness = document.getElementById('skinThickness').value;
-  const insulin = document.getElementById('insulin').value;
-  const bmi = document.getElementById('bmi').value;
-  const diabetesPedigreeFunction = document.getElementById('diabetesPedigreeFunction').value;
-  const age = document.getElementById('age').value;
+    const name = document.getElementById('name').value;
+    const pregnancies = document.getElementById('pregnancies').value;
+    const glucose = document.getElementById('glucose').value;
+    const bloodPressure = document.getElementById('bloodPressure').value;
+    const skinThickness = document.getElementById('skinThickness').value;
+    const insulin = document.getElementById('insulin').value;
+    const bmi = document.getElementById('bmi').value;
+    const diabetesPedigreeFunction = document.getElementById('diabetesPedigreeFunction').value;
+    const age = document.getElementById('age').value;
 
-  const datas = {
-    pregnancies: pregnancies,
-    glucose: glucose,
-    bloodPressure: bloodPressure,
-    skinThickness: skinThickness,
-    insulin: insulin,
-    bmi: bmi,
-    diabetesPedigreeFunction: diabetesPedigreeFunction,
-    age: age
-  };
+    const datas = {
+        pregnancies: pregnancies,
+        glucose: glucose,
+        bloodPressure: bloodPressure,
+        skinThickness: skinThickness,
+        insulin: insulin,
+        bmi: bmi,
+        diabetesPedigreeFunction: diabetesPedigreeFunction,
+        age: age
+    };
 
-  const postData = async (url = '', data = {}) => {
-    const response = await fetch(url, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(data)
-    });
-    return response;
-  }
-  
-  
-  postData('/process_to_model', datas)
-  .then(data => data.json())
-  .then(res => {
-      const {response} = res;
-      const modalBody = document.querySelector('.modal-body');
-      const textModalBody = `
+    const postData = async (url = '', data = {}) => {
+        const response = await fetch(url, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        });
+        return response;
+    }
+
+
+    postData('/process_to_model', datas)
+        .then(data => data.json())
+        .then(res => {
+            const { response } = res;
+            const modalBody = document.querySelector('.modal-body');
+            const textModalBody = `
       <p class="my-2 text-capitalize"><span class="fw-bold">Name</span> : ${name}</p>
               <table class="table">
                   <tbody>
@@ -84,12 +84,22 @@ form.addEventListener('submit', function (e) {
                   <p>Berdasarkan data diatas anda dinyatakan : </p>
                   <p><span class="fw-bold text-uppercase">${response}</span> terhadap penyakit diabetes.</p>
               </div>`;
-      modalBody.innerHTML = textModalBody;
-      modal.show();
-    })
-    .catch(m => console.log(m));
+            modalBody.innerHTML = textModalBody;
+            modal.show();
+        })
+        .catch(m => console.log(m));
 });
 
+form.addEventListener('reset', function (e) {
+    modalConfirm = confirm("Do you want to reset this data?");
+    if (modalConfirm == true) {
+        e.reset();
+    } else {
+        e.preventDefault();
+    }
+});
+
+/* Footer */
 const footerYear = document.getElementById('footerYear');
 const date = new Date();
 
