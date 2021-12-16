@@ -28,6 +28,10 @@ Jalankan project dengan perintah :
 
 ![Gambar Flask](https://raw.githubusercontent.com/dandia14/project-capstone-team-csd-134/ml/images/flask-run.JPG)
 
+Kemudian masukkan alamat IP 127.0.0.1 pada browser, jika berhasil maka akan tampil seperti dibawah ini:
+
+![Gambar Diabetes Prediction System](https://raw.githubusercontent.com/dandia14/project-capstone-team-csd-134/ml/images/diabetes-prediction-system.JPG)
+
 Untuk menghentikan project menggunakan `CTRL + C`.
 
 Jika ingin keluar dari venv : `venv\Scripts\deactivate.bat`
