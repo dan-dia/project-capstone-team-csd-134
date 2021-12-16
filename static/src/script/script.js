@@ -1,6 +1,7 @@
 const form = document.getElementById('form');
 const modal = new bootstrap.Modal(document.getElementById('modalResult'));
 
+/* Button Predict */
 form.addEventListener('submit', function (e) {
     e.preventDefault();
 
@@ -90,6 +91,7 @@ form.addEventListener('submit', function (e) {
         .catch(m => console.log(m));
 });
 
+/* Button Reset */
 form.addEventListener('reset', function (e) {
     modalConfirm = confirm("Do you want to reset this data?");
     if (modalConfirm == true) {
@@ -98,6 +100,34 @@ form.addEventListener('reset', function (e) {
         e.preventDefault();
     }
 });
+
+/*form.addEventListener('reset', function (e) {
+    e.preventDefault();
+
+    const confirm = document.createElement('div');
+    confirm.innerHTML = `
+    <div class="modal fade" tabindex="-1">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header bg-light">
+            <h5 class="modal-title">Reset Data</h5>
+          </div>
+          <div class="modal-body">
+            <p>Do you want to reset this data?</p>
+          </div>
+          <div class="modal-footer bg-light">
+            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Yes</button>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    `;
+
+    document.body.append(confirm);
+    const modal = new bootstrap.Modal(confirm.querySelector('.modal'));
+    modal.show();
+});*/
 
 /* Footer */
 const footerYear = document.getElementById('footerYear');
