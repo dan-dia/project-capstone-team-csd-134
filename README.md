@@ -15,6 +15,7 @@ Lalu install package yang dibutuhkan:
 
 - pip install Flask
 - pip install pandas
+- pip install numpy
 - pip install -U scikit-learn
 
 Jika ingin dijalankan dalam mode development atau pengembangan maka ketikkan peritah dibawah ini: (opsional, secara default menggunakan mode production)
@@ -24,6 +25,8 @@ Jika ingin dijalankan dalam mode development atau pengembangan maka ketikkan per
 Jalankan project dengan perintah :
 
 `flask run`
+
+![Gambar Flask](https://raw.githubusercontent.com/dandia14/project-capstone-team-csd-134/ml/images/flask-run.JPG)
 
 Untuk menghentikan project menggunakan `CTRL + C`.
 
