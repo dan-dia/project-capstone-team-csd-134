@@ -5,7 +5,7 @@ Project Capstone Team CSD-134
 
 Masuk kefolder project lalu buka cmd dan ketikan perintah dibawah ini, untuk membuat folder virtual environtment.
 
-`py -3 -m venv venv`
+`py -3 -m venv venv` atau `virtualenv venv`
 
 Setelah inisialisasi venv, aktifkan venv dengan perintah:
 
