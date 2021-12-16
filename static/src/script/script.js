@@ -89,3 +89,12 @@ form.addEventListener('submit', function (e) {
     })
     .catch(m => console.log(m));
 });
+
+const footerYear = document.getElementById('footerYear');
+const date = new Date();
+
+if (date.getFullYear() === 2021) {
+    footerYear.innerHTML = date.getFullYear();
+} else {
+    footerYear.innerHTML = `2021 - ${date.getFullYear()}`;
+}
