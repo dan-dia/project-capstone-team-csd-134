@@ -1,9 +1,11 @@
 # Sistem Diagnosa Penyakit Diabetes pada Wanita
 Project Capstone Team CSD-134
 
-## Instalasi Project
+![Kaggle](https://img.shields.io/badge/Dataset-Kaggle-blue.svg) ![Flask](https://img.shields.io/badge/Python-Flask-red) ![scikit-learnn](https://img.shields.io/badge/Library-Scikit_Learn-orange.svg) ![Numpy](https://img.shields.io/badge/Library-Numpy-brightgreen) ![pandas](https://img.shields.io/badge/Library-pandas-yellow)
 
-Masuk kefolder project lalu buka cmd dan ketikan perintah dibawah ini, untuk membuat folder virtual environtment.
+## Project Installation
+
+Masuk kefolder project lalu buka cmd dan ketikan perintah dibawah ini, untuk membuat folder virtual environtment:
 
 `py -3 -m venv venv` atau `virtualenv venv`
 
@@ -13,10 +15,10 @@ Setelah inisialisasi venv, aktifkan venv dengan perintah:
 
 Lalu install package yang dibutuhkan:
 
-- pip install Flask
-- pip install pandas
-- pip install numpy
-- pip install -U scikit-learn
+- `pip install Flask`
+- `pip install pandas`
+- `pip install numpy`
+- `pip install -U scikit-learn`
 
 Jika ingin dijalankan dalam mode development atau pengembangan maka ketikkan peritah dibawah ini: (opsional, secara default menggunakan mode production)
 
@@ -25,12 +27,6 @@ Jika ingin dijalankan dalam mode development atau pengembangan maka ketikkan per
 Jalankan project dengan perintah :
 
 `flask run`
-
-![Gambar Flask](https://raw.githubusercontent.com/dandia14/project-capstone-team-csd-134/ml/images/flask-run.JPG)
-
-Kemudian masukkan alamat IP 127.0.0.1 pada browser, jika berhasil maka akan tampil seperti dibawah ini:
-
-![Gambar Diabetes Prediction System](https://raw.githubusercontent.com/dandia14/project-capstone-team-csd-134/ml/images/diabetes-prediction-system.JPG)
 
 Untuk menghentikan project menggunakan `CTRL + C`.
 
