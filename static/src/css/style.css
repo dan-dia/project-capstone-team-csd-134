@@ -10,6 +10,7 @@ body {
 }
 
 @media screen and (max-width: 1000px) {
+
     .card,
     .btn {
         width: 100%;

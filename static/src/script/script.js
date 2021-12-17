@@ -97,7 +97,7 @@ btnReset.addEventListener('click', function (e) {
     Swal.fire({
         title: 'Reset Data!',
         text: 'Do you want to reset this data ?',
-        icon: 'info',
+        icon: 'warning',
         confirmButtonText: 'Yes',
         showCancelButton: true,
         confirmButtonColor: '#0d6efd'
@@ -106,11 +106,11 @@ btnReset.addEventListener('click', function (e) {
             const reset = document.querySelector('button[type=reset]');
             reset.click();
             Swal.fire({
-                title: 'Reset!', 
+                title: 'Reset!',
                 text: 'The form has been reset.',
                 icon: 'success',
                 confirmButtonColor: '#0d6efd'
-                });
+            });
         }
     }
 

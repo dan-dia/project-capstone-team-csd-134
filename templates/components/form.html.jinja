@@ -1,75 +1,75 @@
 <div class="card my-5 bg-light shadow">
-  <div class="card-body p-5">
-      <form class="row g-3" id="form">
-          <div class="col-12">
-              <label for="name" class="form-label fw-bold">Name</label>
-              <input type="text" class="form-control" id="name" name="name"
-                  placeholder="Masukkan Nama Lengkap" autocomplete="off" required>
-          </div>
-          <div class="col-md-7">
-              <label for="pregnancies" class="form-label">Pregnancies</label>
-              <input type="number" class="form-control" id="pregnancies" name="pregnancies"
-                  placeholder="Jumlah anak yang dilahirkan" min="0" autocomplete="off" required>
-          </div>
-          <div class="col-md-5">
-              <label for="glucose" class="form-label">Glucose</label>
-              <div class="input-group">
-                  <input type="number" class="form-control" id="glucose" name="glucose"
-                      placeholder="Hasil tes kadar gula" min="0" step="0.1" autocomplete="off" required>
-                  <div class="input-group-text">mg/dL</div>
-              </div>
-          </div>
-          <div class="col-md-7">
-              <label for="bloodPressure" class="form-label">Blood Pressure</label>
-              <div class="input-group">
-                  <input type="number" class="form-control" id="bloodPressure" name="bloodPressure"
-                      placeholder="Hasil tes tekanan darah diastolik" min="0" step="0.1" autocomplete="off" required>
-                  <div class="input-group-text">mmHg</div>
-              </div>
-          </div>
-          <div class="col-md-5">
-              <label for="skinThickness" class="form-label">Skin Thickness</label>
-              <div class="input-group">
-                  <input type="number" class="form-control" id="skinThickness" name="skinThickness"
-                      placeholder="Ketebalan lipatan kulit trisep" min="0" step="0.1" autocomplete="off" required>
-                  <div class="input-group-text">mm</div>
-              </div>
-          </div>
-          <div class="col-md-7">
-              <label for="insulin" class="form-label">Insulin</label>
-              <div class="input-group">
-                  <input type="number" class="form-control" id="insulin" name="insulin"
-                      placeholder="Hasil pemeriksaan jumlah insulin" min="0" step="0.1" autocomplete="off" required>
-                  <div class="input-group-text">mu U/ml</div>
-              </div>
-          </div>
-          <div class="col-md-5">
-              <label for="bmi" class="form-label">BMI</label>
-              <div class="input-group">
-                  <input type="number" class="form-control" id="bmi" name="bmi"
-                      placeholder="Indeks Massa Tubuh" min="0" step="0.1" autocomplete="off" required>
-                  <div class="input-group-text">kg/m<sup>2</sup></div>
-              </div>
-          </div>
-          <div class="col-md-7">
-              <label for="diabetesPedigreeFunction" class="form-label">Diabetes Pedigree Function</label>
-              <input type="number" class="form-control" id="diabetesPedigreeFunction"
-                  name="diabetesPedigreeFunction" placeholder="Indikator riwayat diabetes dalam keluarga"
-                  min="0" step="0.001" autocomplete="off" required>
-          </div>
-          <div class="col-md-5">
-              <label for="age" class="form-label">Age</label>
-              <div class="input-group">
-                  <input type="number" class="form-control" id="age" name="age" placeholder="Umur Anda"
-                      min="0" autocomplete="off" required>
-                  <div class="input-group-text">Year</div>
-              </div>
-          </div>
-          <div class="d-flex justify-content-end pt-4">
-              <button class="btn btn-warning px-5 fw-bold me-3 text-white" type="button" id="btnReset">Reset</button>
-              <button type="reset" hidden>reset</button>
-              <button class="btn btn-primary px-5 fw-bold" type="submit">Predict</button>
-          </div>
-      </form>
-  </div>
+    <div class="card-body p-5">
+        <form class="row g-3" id="form">
+            <div class="col-12">
+                <label for="name" class="form-label fw-bold">Name</label>
+                <input type="text" class="form-control" id="name" name="name" placeholder="Masukkan Nama Lengkap"
+                    autocomplete="off" required>
+            </div>
+            <div class="col-md-7">
+                <label for="pregnancies" class="form-label">Pregnancies</label>
+                <input type="number" class="form-control" id="pregnancies" name="pregnancies"
+                    placeholder="Jumlah anak yang dilahirkan" min="0" autocomplete="off" required>
+            </div>
+            <div class="col-md-5">
+                <label for="glucose" class="form-label">Glucose</label>
+                <div class="input-group">
+                    <input type="number" class="form-control" id="glucose" name="glucose"
+                        placeholder="Hasil tes kadar gula" min="0" step="0.1" autocomplete="off" required>
+                    <div class="input-group-text">mg/dL</div>
+                </div>
+            </div>
+            <div class="col-md-7">
+                <label for="bloodPressure" class="form-label">Blood Pressure</label>
+                <div class="input-group">
+                    <input type="number" class="form-control" id="bloodPressure" name="bloodPressure"
+                        placeholder="Hasil tes tekanan darah diastolik" min="0" step="0.1" autocomplete="off" required>
+                    <div class="input-group-text">mmHg</div>
+                </div>
+            </div>
+            <div class="col-md-5">
+                <label for="skinThickness" class="form-label">Skin Thickness</label>
+                <div class="input-group">
+                    <input type="number" class="form-control" id="skinThickness" name="skinThickness"
+                        placeholder="Ketebalan lipatan kulit trisep" min="0" step="0.1" autocomplete="off" required>
+                    <div class="input-group-text">mm</div>
+                </div>
+            </div>
+            <div class="col-md-7">
+                <label for="insulin" class="form-label">Insulin</label>
+                <div class="input-group">
+                    <input type="number" class="form-control" id="insulin" name="insulin"
+                        placeholder="Hasil pemeriksaan jumlah insulin" min="0" step="0.1" autocomplete="off" required>
+                    <div class="input-group-text">mu U/ml</div>
+                </div>
+            </div>
+            <div class="col-md-5">
+                <label for="bmi" class="form-label">BMI</label>
+                <div class="input-group">
+                    <input type="number" class="form-control" id="bmi" name="bmi" placeholder="Indeks Massa Tubuh"
+                        min="0" step="0.1" autocomplete="off" required>
+                    <div class="input-group-text">kg/m<sup>2</sup></div>
+                </div>
+            </div>
+            <div class="col-md-7">
+                <label for="diabetesPedigreeFunction" class="form-label">Diabetes Pedigree Function</label>
+                <input type="number" class="form-control" id="diabetesPedigreeFunction" name="diabetesPedigreeFunction"
+                    placeholder="Indikator riwayat diabetes dalam keluarga" min="0" step="0.001" autocomplete="off"
+                    required>
+            </div>
+            <div class="col-md-5">
+                <label for="age" class="form-label">Age</label>
+                <div class="input-group">
+                    <input type="number" class="form-control" id="age" name="age" placeholder="Umur Anda" min="0"
+                        autocomplete="off" required>
+                    <div class="input-group-text">Year</div>
+                </div>
+            </div>
+            <div class="d-flex justify-content-end pt-4">
+                <button class="btn btn-warning px-5 fw-bold me-3 text-white" type="button" id="btnReset">Reset</button>
+                <button type="reset" hidden>reset</button>
+                <button class="btn btn-primary px-5 fw-bold" type="submit">Predict</button>
+            </div>
+        </form>
+    </div>
 </div>
