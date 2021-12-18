@@ -1,7 +1,7 @@
 # Sistem Diagnosa Penyakit Diabetes pada Wanita
 Project Capstone Team CSD-134
 
-![Kaggle](https://img.shields.io/badge/Dataset-Kaggle-blue.svg) ![Flask](https://img.shields.io/badge/Python-Flask-red) ![scikit-learnn](https://img.shields.io/badge/Library-Scikit_Learn-orange.svg) ![Numpy](https://img.shields.io/badge/Library-Numpy-brightgreen) ![pandas](https://img.shields.io/badge/Library-pandas-yellow)
+![Kaggle](https://img.shields.io/badge/Dataset-Kaggle-blue.svg) ![Python](https://img.shields.io/badge/python-v3.8-lightgrey) ![Flask](https://img.shields.io/badge/library-Flask-red) ![scikit-learnn](https://img.shields.io/badge/library-Scikit_Learn-orange.svg) ![Numpy](https://img.shields.io/badge/library-Numpy-brightgreen) ![pandas](https://img.shields.io/badge/library-pandas-yellow)
 
 ## Project Installation
 
