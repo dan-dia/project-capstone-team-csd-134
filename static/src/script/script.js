@@ -42,7 +42,10 @@ form.addEventListener('submit', function (e) {
         .then(res => {
             const { response } = res;
             const textModalBody = `
-            <p class="my-2 text-capitalize text-start"><span class="fw-bold">Name</span> : ${name}</p>
+            <div class="my-4">
+                <p>Berdasarkan data, <span class="text-capitalize">${name}</span> dinyatakan : </p>
+                <p><span class="fw-bold text-uppercase">${response}</span> terhadap Penyakit Diabetes.</p>
+            </div>
             <div class="accordion m-3" id="accordionExample">
                 <div class="accordion-item">
                     <h2 class="accordion-header" id="flush-headingOne">
@@ -55,46 +58,46 @@ form.addEventListener('submit', function (e) {
                             <table class="table table-sm text-start">
                                 <tbody>
                                     <tr>
+                                        <th>Name</th>
+                                        <td class="text-center">${name}</td>
+                                    </tr>
+                                    <tr>
                                         <th>Pregnancies</th>
-                                        <td>${pregnancies}</td>
+                                        <td class="text-center">${pregnancies}</td>
                                     </tr>
                                     <tr>
                                         <th>Glucose</th>
-                                        <td>${glucose}</td>
+                                        <td class="text-center">${glucose}</td>
                                     </tr>
                                     <tr>
                                         <th>Blood Pressure</th>
-                                        <td>${bloodPressure}</td>
+                                        <td class="text-center">${bloodPressure}</td>
                                     </tr>
                                     <tr>
                                         <th>Skin Thickness</th>
-                                        <td>${skinThickness}</td>
+                                        <td class="text-center">${skinThickness}</td>
                                     </tr>
                                     <tr>
                                         <th>Insulin</th>
-                                        <td>${insulin}</td>
+                                        <td class="text-center">${insulin}</td>
                                     </tr>
                                     <tr>
                                         <th>BMI</th>
-                                        <td>${bmi}</td>
+                                        <td class="text-center">${bmi}</td>
                                     </tr>
                                     <tr>
                                         <th>Diabetes Pedigree Function</th>
-                                        <td>${diabetesPedigreeFunction}</td>
+                                        <td class="text-center">${diabetesPedigreeFunction}</td>
                                     </tr>
                                     <tr>
                                         <th>Age</th>
-                                        <td>${age}</td>
+                                        <td class="text-center">${age}</td>
                                     </tr>
                                 </tbody>
                             </table>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div>
-                <p>Berdasarkan data, Sdri <span class="text-capitalize">${name}</span> dinyatakan : </p>
-                <p><span class="fw-bold text-uppercase">${response}</span> terhadap Penyakit Diabetes.</p>
             </div>`;
 
             let colorBackdrop = '';
@@ -112,13 +115,13 @@ form.addEventListener('submit', function (e) {
                 title: `<strong>Result</strong>`,
                 icon: 'info',
                 html: textModalBody,
-                showCancelButton: true,
+                showCloseButton: true,
+                showCancelButton: false,
                 showConfirmButton: false,
                 focusCancel: true,
-                cancelButtonText: 'Close',
                 backdrop: colorBackdrop,
                 iconColor: colorIcon
-              })
+            })
         })
         .catch(m => console.log(m));
 });
