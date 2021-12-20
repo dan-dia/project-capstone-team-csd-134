@@ -1,14 +1,24 @@
 {% extends 'template.html.jinja' %}
-{% import './components/form.html.jinja' as form %}
-{% import './components/modal.html.jinja' as modal %}
-
-{% block title %}Diabetes Prediction System{% endblock %}
 
 {% block main %}
-  {{ form }}
-  {{ modal }}
+<div class="row my-5">
+  <div class="col">
+    <div class="card">
+      <h5 class="card-header">Featured</h5>
+      <div class="card-body">
+        <h5 class="card-title">Diabetes Prediction</h5>
+        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+        <a href="/diabetes" class="btn btn-primary">More...</a>
+      </div>
+      <hr>
+      <div class="card-body">
+        <h5 class="card-title">BMI Calculator</h5>
+        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+        <a href="/bmi" class="btn btn-primary">More...</a>
+      </div>
+    </div>
+  </div>
+</div>
 {% endblock %}
 
-{% block script %}
-<script src="{{ url_for('static', filename='src/script/script.js') }}"></script>
-{% endblock %}
+{% block classFooter %}fixed-bottom{% endblock %}
