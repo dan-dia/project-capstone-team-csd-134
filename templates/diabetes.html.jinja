@@ -1,0 +1,14 @@
+{% extends 'template.html.jinja' %}
+{% import './components/form.html.jinja' as form %}
+{% import './components/modal.html.jinja' as modal %}
+
+{% block title %}{{ data.title }}{% endblock %}
+
+{% block main %}
+  {{ form }}
+  {{ modal }}
+{% endblock %}
+
+{% block script %}
+<script src="{{ url_for('static', filename='src/script/diabetes.js') }}"></script>
+{% endblock %}
