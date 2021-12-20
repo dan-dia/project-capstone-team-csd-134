@@ -17,17 +17,17 @@
         type="image/x-icon">
     <link rel="stylesheet" href="{{ url_for('static', filename='src/css/style.css') }}">
 
-    <title>{% block title %}{% endblock %}</title>
+    <title>Medical Check Apps {% block title %}{% endblock %}</title>
 </head>
 
 <body>
-    <header>
+    <header class="sticky-top">
         {{ header }}
     </header>
     <main class="container">
         {% block main %}{% endblock %}
     </main>
-    <footer class="bg-dark text-white text-center p-2">
+    <footer class="bg-dark text-white text-center p-2 {% block classFooter %}{% endblock %}">
         {{ footer }}
     </footer>
     <!-- Optional JavaScript; choose one of the two! -->
@@ -47,7 +47,7 @@
     </script>
     -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.3.0/dist/sweetalert2.all.min.js"></script>
+    <script src="{{ url_for('static', filename='src/script/script.js') }}"></script>
     {% block script %}{% endblock %}
 </body>
-
 </html>
