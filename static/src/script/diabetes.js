@@ -54,8 +54,8 @@ form.addEventListener('submit', function (e) {
                     </button>
                     </h2>
                     <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionExample">
-                        <div class="accordion-body">
-                            <table class="table table-sm text-start">
+                        <div class="accordion-body table-responsive">
+                            <table class="table table-sm text-start body-tablet-laptop">
                                 <tbody>
                                     <tr>
                                         <th>Name</th>
@@ -95,6 +95,37 @@ form.addEventListener('submit', function (e) {
                                     </tr>
                                 </tbody>
                             </table>
+                            <table class="table table-sm text-start body-mobile">
+                                <tbody>
+                                    <tr>
+                                        <th>Name<br><span class="fw-normal">${name}</span></th>
+                                    </tr>
+                                    <tr>
+                                        <th>Pregnancies<br><span class="fw-normal">${pregnancies}</span></th>
+                                    </tr>
+                                    <tr>
+                                        <th>Glucose<br><span class="fw-normal">${glucose}</span></th>
+                                    </tr>
+                                    <tr>
+                                        <th>Blood Pressure<br><span class="fw-normal">${bloodPressure}</span></th>
+                                    </tr>
+                                    <tr>
+                                        <th>Skin Thickness<br><span class="fw-normal">${skinThickness}</span></th>
+                                    </tr>
+                                    <tr>
+                                        <th>Insulin<br><span class="fw-normal">${insulin}</span></th>
+                                    </tr>
+                                    <tr>
+                                        <th>BMI<br><span class="fw-normal">${bmi}</span></th>
+                                    </tr>
+                                    <tr>
+                                        <th>Diabetes Pedigree Function<br><span class="fw-normal">${diabetesPedigreeFunction}</span></th>
+                                    </tr>
+                                    <tr>
+                                        <th>Age<br><span class="fw-normal">${age}</span></th>
+                                    </tr>   
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
@@ -123,7 +154,7 @@ form.addEventListener('submit', function (e) {
                 iconColor: colorIcon
             })
         })
-        .catch(m => console.log(m));
+        .catch(m => alert(m));
 });
 
 /* Button Reset */
@@ -135,6 +166,7 @@ btnReset.addEventListener('click', function (e) {
         icon: 'warning',
         confirmButtonText: 'Yes',
         showCancelButton: true,
+        cancelButtonText: 'No',
         confirmButtonColor: '#0d6efd'
     }).then((result) => {
         if (result.isConfirmed) {
