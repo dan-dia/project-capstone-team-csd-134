@@ -13,6 +13,13 @@ body {
     display: none;
 }
 
+footer {
+    margin-top: -40px;
+}
+
+.res-footer {
+    margin-top: -40px;
+}
 @media screen and (max-width: 1000px) {
 
     .card,
@@ -31,7 +38,7 @@ body {
     }
 }
 
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 767px) {
 
     .body-tablet-laptop {
         display: none;
@@ -39,6 +46,17 @@ body {
     
     .body-mobile {
         display: table;
+    }
+
+    .res-footer {
+        margin-top: 0;
+    }
+}
+
+@media screen and (max-height: 822px) {
+    
+    footer {
+        margin-top: 0;
     }
     
 }

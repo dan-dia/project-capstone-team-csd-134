@@ -13,11 +13,12 @@ function removeClassActive() {
 }
 
 removeClassActive();
-
+const footer = document.getElementsByTagName('footer')[0];
 if (path === '/diabetes') {
     addClassActive(1);
 } else if (path === '/bmi') {
     addClassActive(2);
+    footer.classList.add('res-footer');
 } else {
     addClassActive(0);
 }

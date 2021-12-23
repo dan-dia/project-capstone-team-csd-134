@@ -21,15 +21,17 @@
 </head>
 
 <body>
-    <header class="sticky-top">
-        {{ header }}
-    </header>
-    <main class="container min-vh-100">
-        {% block main %}{% endblock %}
-    </main>
-    <footer class="bg-dark text-white text-center p-2">
-        {{ footer }}
-    </footer>
+    <div class="min-vh-100">
+        <header class="sticky-top">
+            {{ header }}
+        </header>
+        <main class="container">
+            {% block main %}{% endblock %}
+        </main>
+    </div>
+        <footer class="bg-dark text-white text-center p-2">
+            {{ footer }}
+        </footer>
     <!-- Optional JavaScript; choose one of the two! -->
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
