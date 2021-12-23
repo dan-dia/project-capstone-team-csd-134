@@ -43,7 +43,7 @@ form.addEventListener('submit', function (e) {
             const { response } = res;
             const textModalBody = `
             <div class="my-4">
-                <p>Berdasarkan data, <span class="text-capitalize">${name}</span> dinyatakan : </p>
+                <p>Berdasarkan data, <span class="text-capitalize fw-bold">${name}</span> dinyatakan : </p>
                 <p><span class="fw-bold text-uppercase">${response}</span> terhadap Penyakit Diabetes.</p>
             </div>
             <div class="accordion m-3" id="accordionExample">
@@ -58,23 +58,23 @@ form.addEventListener('submit', function (e) {
                             <table class="table table-sm text-start body-tablet-laptop">
                                 <tbody>
                                     <tr>
-                                        <th>Name</th>
-                                        <td class="text-center">${name}</td>
+                                        <th>Nama</th>
+                                        <td class="text-center text-capitalize">${name}</td>
                                     </tr>
                                     <tr>
-                                        <th>Pregnancies</th>
+                                        <th>Kehamilan</th>
                                         <td class="text-center">${pregnancies}</td>
                                     </tr>
                                     <tr>
-                                        <th>Glucose</th>
+                                        <th>Glukosa</th>
                                         <td class="text-center">${glucose}</td>
                                     </tr>
                                     <tr>
-                                        <th>Blood Pressure</th>
+                                        <th>Tekanan Darah</th>
                                         <td class="text-center">${bloodPressure}</td>
                                     </tr>
                                     <tr>
-                                        <th>Skin Thickness</th>
+                                        <th>Ketebalan Kulit</th>
                                         <td class="text-center">${skinThickness}</td>
                                     </tr>
                                     <tr>
@@ -86,11 +86,11 @@ form.addEventListener('submit', function (e) {
                                         <td class="text-center">${bmi}</td>
                                     </tr>
                                     <tr>
-                                        <th>Diabetes Pedigree Function</th>
+                                        <th>Fungsi Silsilah Diabetes</th>
                                         <td class="text-center">${diabetesPedigreeFunction}</td>
                                     </tr>
                                     <tr>
-                                        <th>Age</th>
+                                        <th>Umur</th>
                                         <td class="text-center">${age}</td>
                                     </tr>
                                 </tbody>
@@ -98,19 +98,19 @@ form.addEventListener('submit', function (e) {
                             <table class="table table-sm text-start body-mobile">
                                 <tbody>
                                     <tr>
-                                        <th>Name<br><span class="fw-normal">${name}</span></th>
+                                        <th>Nama<br><span class="fw-normal text-capitalize">${name}</span></th>
                                     </tr>
                                     <tr>
-                                        <th>Pregnancies<br><span class="fw-normal">${pregnancies}</span></th>
+                                        <th>Kehamilan<br><span class="fw-normal">${pregnancies}</span></th>
                                     </tr>
                                     <tr>
-                                        <th>Glucose<br><span class="fw-normal">${glucose}</span></th>
+                                        <th>Glukosa<br><span class="fw-normal">${glucose}</span></th>
                                     </tr>
                                     <tr>
-                                        <th>Blood Pressure<br><span class="fw-normal">${bloodPressure}</span></th>
+                                        <th>Tekanan Darah<br><span class="fw-normal">${bloodPressure}</span></th>
                                     </tr>
                                     <tr>
-                                        <th>Skin Thickness<br><span class="fw-normal">${skinThickness}</span></th>
+                                        <th>Ketebalan Kulit<br><span class="fw-normal">${skinThickness}</span></th>
                                     </tr>
                                     <tr>
                                         <th>Insulin<br><span class="fw-normal">${insulin}</span></th>
@@ -119,10 +119,10 @@ form.addEventListener('submit', function (e) {
                                         <th>BMI<br><span class="fw-normal">${bmi}</span></th>
                                     </tr>
                                     <tr>
-                                        <th>Diabetes Pedigree Function<br><span class="fw-normal">${diabetesPedigreeFunction}</span></th>
+                                        <th>Fungsi Silsilah Diabetes<br><span class="fw-normal">${diabetesPedigreeFunction}</span></th>
                                     </tr>
                                     <tr>
-                                        <th>Age<br><span class="fw-normal">${age}</span></th>
+                                        <th>Umur<br><span class="fw-normal">${age}</span></th>
                                     </tr>   
                                 </tbody>
                             </table>
@@ -143,7 +143,7 @@ form.addEventListener('submit', function (e) {
             }
 
             Swal.fire({
-                title: `<strong>Result</strong>`,
+                title: `<strong>Hasil Prediksi</strong>`,
                 icon: 'info',
                 html: textModalBody,
                 showCloseButton: true,
@@ -162,11 +162,11 @@ const btnReset = document.getElementById('btnReset');
 btnReset.addEventListener('click', function (e) {
     Swal.fire({
         title: 'Reset Data!',
-        text: 'Do you want to reset this data ?',
+        text: 'Apakah anda ingin menghapus seluruh data pada form ?',
         icon: 'warning',
-        confirmButtonText: 'Yes',
+        confirmButtonText: 'Iya',
         showCancelButton: true,
-        cancelButtonText: 'No',
+        cancelButtonText: 'Tidak',
         confirmButtonColor: '#0d6efd'
     }).then((result) => {
         if (result.isConfirmed) {
@@ -174,7 +174,7 @@ btnReset.addEventListener('click', function (e) {
             reset.click();
             Swal.fire({
                 title: 'Reset!',
-                text: 'The form has been reset.',
+                text: 'Form berhasil direset.',
                 icon: 'success',
                 confirmButtonColor: '#0d6efd'
             });
