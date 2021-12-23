@@ -16,11 +16,11 @@ function calculateBMI() {
         bodyBMI.innerHTML = `
         <h1><span class="badge bg-danger">${resultBMI}</span><h1>
         <h3 class="mt-2 fw-bold text-danger text-capitalize">berat badan kurang<h3>`;
-    } else if (resultBMI >= 18.5 && resultBMI < 24.9) {
+    } else if (resultBMI >= 18.5 && resultBMI < 25) {
         bodyBMI.innerHTML = `
         <h1><span class="badge bg-success">${resultBMI}</span><h1>
         <h3 class="mt-2 fw-bold text-success text-capitalize">berat badan normal<h3>`;
-    } else if (resultBMI >= 25 && resultBMI < 29.9) {
+    } else if (resultBMI >= 25 && resultBMI < 30) {
         bodyBMI.innerHTML = `
         <h1><span class="badge bg-warning">${resultBMI}</span><h1>
         <h3 class="mt-2 fw-bold text-warning text-capitalize">berat badan kelebihan<h3>`;
